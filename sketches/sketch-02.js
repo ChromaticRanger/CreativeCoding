@@ -27,6 +27,7 @@ const sketch = () => {
 
     const num = 40
     const radius = width * 0.3
+    const colors = ['YellowGreen','Tomato','Thistle', 'Teal', "Purple"]
 
     for (let i = 0; i < num; i++) {
 
@@ -48,7 +49,8 @@ const sketch = () => {
       context.restore()
 
       context.save()
-        context.strokeStyle = 'white'
+        let colorNum = Math.floor(Math.random() * colors.length)
+        context.strokeStyle = colors[colorNum]
         context.translate(cx, cy)
         context.rotate(-angle)
         context.lineWidth = random.range(5, 20)
