@@ -16,17 +16,17 @@ const sketch = () => {
 
     context.fillStyle = 'black'
 
-    // Place context origin in center of canvas
-    const cx = width * 0.5
-    const cy = height * 0.5
+    // Place context origin in top left of canvas    
+    const cx = 0
+    const cy = 0
     
     // Size of the shapes to draw
     const w = width * 0.01
-    const h = height * 0.1
+    const h = height * 0.2
     let x, y
 
-    const num = 40
-    const radius = width * 0.3
+    const num = 60
+    const radius = height * 0.6
     const colors = ['YellowGreen','Tomato','Thistle', 'Teal', "Purple"]
 
     for (let i = 0; i < num; i++) {
@@ -42,9 +42,9 @@ const sketch = () => {
         context.translate(cx, cy)
         context.translate(x, y)
         context.rotate(-angle)
-        context.scale(random.range(0.1, 2), random.range(0.2, 0.5))
+        context.scale(random.range(0.1, 7), random.range(0.2, 0.5))
         context.beginPath()
-        context.rect(-w * 0.5, random.range(0, -h * 0.5), w, h)
+        context.rect(-w * 0.3, random.range(0, -h * 0.5), w, h)
         context.fill()
       context.restore()
 
@@ -53,11 +53,11 @@ const sketch = () => {
         context.strokeStyle = colors[colorNum]
         context.translate(cx, cy)
         context.rotate(-angle)
-        context.lineWidth = random.range(5, 20)
+        context.lineWidth = random.range(4, 40)
         context.beginPath()
-        context.arc(0, 0, radius * random.range(0.7, 1.3), 
+        context.arc(0, 0, radius * random.range(0.3, 1.2), 
           slice * random.range(0, -8), 
-          slice * random.range(1, 5)
+          slice * random.range(1, 8)
         )
         context.stroke()
       context.restore()
