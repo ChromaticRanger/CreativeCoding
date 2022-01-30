@@ -2,7 +2,7 @@
   "name": "03",
   "version": "1.0.0",
   "description": "",
-  "main": "sketch-03.js",
+  "main": "01-bubbles-in-box.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
