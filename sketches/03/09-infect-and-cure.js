@@ -53,9 +53,9 @@ const sketch = ({ context, width, height }) => {
         // Look through normal agents for any that are close by
         for (let j = 0; j < agents.length; j++) {
 
-          const agent = agents[j]
+          const normal = agents[j]
 
-          let dist = infection.pos.getDistance(agent.pos)
+          let dist = infection.pos.getDistance(normal.pos)
 
           // if infection and agent are more than 200px apart do nothing
           if (dist > 200) continue
@@ -63,13 +63,13 @@ const sketch = ({ context, width, height }) => {
           // draw a line between the infection and the agent
           context.beginPath()
           context.moveTo(infection.pos.x, infection.pos.y)
-          context.lineTo(agent.pos.x, agent.pos.y)
+          context.lineTo(normal.pos.x, normal.pos.y)
           context.stroke()
 
           // if an agent strays inside the infection corona, infect the agent
           if (dist < infection.corona) {
-            // create an infected agent as the same place as the just hit agent
-            infected_agents.push(new InfectedAgent(agent.pos.x, agent.pos.y))
+            // create an infected agent at the same place as the just hit agent
+            infected_agents.push(new InfectedAgent(normal.pos.x, normal.pos.y))
             // remove agent from agents array
             agents.splice(j, 1)
           }
